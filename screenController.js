@@ -7,6 +7,10 @@ export default function screenController(project) {
   };
 
   updateTasks();
+
+  return {
+    updateTasks,
+  };
 }
 
 function appendTask(task, destination) {
