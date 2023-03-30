@@ -5,9 +5,11 @@ import task from "./task";
 
 let currentProject = project("default");
 
-currentProject.addTask(task("lorem0"));
-currentProject.addTask(task("lorem1"));
+document
+  .getElementById("add-task-button")
+  .addEventListener("click", function () {
+    const title = document.getElementById("title-input").value;
 
-console.log(currentProject.getTasks());
-
-screenController(currentProject);
+    currentProject.addTask(task(title));
+    screenController(currentProject).updateTasks();
+  });
