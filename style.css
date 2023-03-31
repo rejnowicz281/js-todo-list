@@ -8,8 +8,8 @@ body {
 }
 
 .add-task-container {
-  padding-bottom: 30px;
   box-shadow: rgba(27, 31, 35, 0.04) 0px 2px 0px;
+  padding: 0 100px 30px 100px;
 }
 
 #title-input {
@@ -31,11 +31,41 @@ body {
   font-weight: bold;
 }
 
+.field {
+  margin: 20px 0;
+}
+
+.description-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks-container {
+  padding: 0 100px;
+}
+
 .task {
+  margin: 20px 0;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.task-expanded {
+  background-color: aliceblue;
+}
+
+.task:hover {
+  background-color: rgb(222, 231, 238);
+}
+
+.task-top-section {
   display: flex;
   align-items: center;
   gap: 30px;
-  margin: 20px 0;
 }
 
 .task-checkbox {
@@ -44,4 +74,8 @@ body {
 
 .task-title {
   font-size: 25px;
+}
+
+.hidden {
+  display: none;
 }
