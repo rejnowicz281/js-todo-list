@@ -4,9 +4,7 @@ export default function project(title) {
   const addTask = (task) => {
     const id = tasks.length;
 
-    if (task.getTitle() != "") {
-      tasks.push(Object.assign({ getId: () => id }, task));
-    }
+    tasks.push(Object.assign({ getId: () => id }, task));
   };
 
   const getTask = (id) => {
