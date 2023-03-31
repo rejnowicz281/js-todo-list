@@ -14,7 +14,24 @@
       <div class="add-task-container">
         <button id="add-task-button">Add New Task</button>
 
-        <input type="text" name="title" id="title-input" placeholder="Task title goes here">
+        <div class="field">
+          <label for="title-input">Title (required)</label>
+          <input type="text" name="title" id="title-input" placeholder="Task title goes here">
+        </div>
+
+        <div class="field description-field">
+          <label for="description-input">Description</label>
+          <textarea name="description" id="description-input" cols="50" rows="10"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="priority-input">Priority</label>
+          <select name="priority" id="priority-input">
+            <option value="low">Low</option>
+            <option value="mid">Mid</option>
+            <option value="high">High</option>
+          </select>
+        </div>
       </div>
       <div class="tasks-container">
 
