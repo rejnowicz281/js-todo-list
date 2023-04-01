@@ -64,35 +64,29 @@ function createTaskDiv(task) {
   if (task.getDescription() != "") {
     let descriptionDiv = document.createElement("div");
     descriptionDiv.classList.add("task-description-box");
-    let descriptionHeading = document.createElement("h1");
-    descriptionHeading.textContent = "Description";
     let description = document.createElement("p");
     description.textContent = task.getDescription();
 
-    descriptionDiv.append(descriptionHeading, description);
+    descriptionDiv.append(description);
     detailsSection.append(descriptionDiv);
   }
 
   let priorityDiv = document.createElement("div");
-  priorityDiv.classList.add("task-priority-box");
-  let priorityHeading = document.createElement("h1");
-  priorityHeading.textContent = "Priority";
+  priorityDiv.classList.add("task-priority-box", "greyed-out");
   let priority = document.createElement("p");
-  priority.textContent = task.getPriority();
+  priority.textContent = `This is a -${task.getPriority()}- priority task`;
 
-  priorityDiv.append(priorityHeading, priority);
+  priorityDiv.append(priority);
   detailsSection.append(priorityDiv);
 
   let dueDateDiv = document.createElement("div");
-  dueDateDiv.classList.add("task-due-date-box");
-  let dueDateHeading = document.createElement("h1");
-  dueDateHeading.textContent = "Due Date";
+  dueDateDiv.classList.add("task-due-date-box", "greyed-out");
   let dueDate = document.createElement("p");
-  dueDate.textContent = `${task.getDueDate().getMonth() + 1}/${task
-    .getDueDate()
-    .getDate()}/${task.getDueDate().getFullYear()}`;
+  dueDate.textContent = `This task is to be finished by ${
+    task.getDueDate().getMonth() + 1
+  }/${task.getDueDate().getDate()}/${task.getDueDate().getFullYear()}`;
 
-  dueDateDiv.append(dueDateHeading, dueDate);
+  dueDateDiv.append(dueDate);
   detailsSection.append(dueDateDiv);
 
   detailsSection.classList.add("hidden");
