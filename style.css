@@ -1,6 +1,8 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(31, 31, 31);
+  color: rgb(112, 255, 136);
 }
 
 .container {
@@ -8,17 +10,8 @@ body {
 }
 
 .add-task-container {
-  box-shadow: rgba(27, 31, 35, 0.04) 0px 2px 0px;
+  box-shadow: rgba(255, 255, 255, 0.397) 0px 2px 0px;
   padding: 0 100px 30px 100px;
-}
-
-#title-input {
-  text-align: center;
-  border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border: none;
-  padding: 10px;
-  margin: 10px;
 }
 
 #add-task-button {
@@ -26,13 +19,36 @@ body {
   border-radius: 25px;
   border: none;
   cursor: pointer;
-  background-color: rgb(118, 118, 228);
+  background-color: rgb(54, 54, 54);
   color: white;
   font-weight: bold;
+  transition: 0.1s;
+}
+
+#add-task-button:hover {
+  background-color: rgb(71, 71, 71);
+  scale: 1.1;
 }
 
 .field {
   margin: 20px 0;
+}
+
+#title-input {
+  text-align: center;
+}
+
+#priority-input,
+#due-date-input,
+#description-input,
+#title-input {
+  background-color: rgb(88, 88, 88);
+  border: none;
+  color: white;
+  padding: 8px;
+  margin: 10px;
+  border-radius: 5px;
+  font-weight: bold;
 }
 
 .description-field {
@@ -40,11 +56,16 @@ body {
   flex-direction: column;
 }
 
+#description-input {
+  margin-left: 0;
+}
+
 .tasks-container {
   padding: 0 100px;
 }
 
 .task {
+  background-color: rgb(46, 42, 42);
   margin: 20px 0;
   padding: 10px;
   cursor: pointer;
@@ -55,11 +76,11 @@ body {
 }
 
 .task-expanded {
-  background-color: aliceblue;
+  background-color: rgb(53, 53, 53);
 }
 
 .task:hover {
-  background-color: rgb(222, 231, 238);
+  background-color: rgb(71, 71, 71);
 }
 
 .task-top-section {
@@ -76,6 +97,16 @@ body {
   font-size: 25px;
 }
 
+.task-description-box {
+  font-size: 20px;
+}
+
 .hidden {
   display: none;
+}
+
+.greyed-out {
+  color: rgb(173, 173, 173);
+  font-size: 13px;
+  font-weight: bold;
 }
