@@ -5,7 +5,12 @@ export default function task(
   dueDate,
   completed = false
 ) {
-  if (title == "" || priority == "" || !(dueDate instanceof Date))
+  if (
+    title == "" ||
+    priority == "" ||
+    !(dueDate instanceof Date) ||
+    isNaN(dueDate)
+  )
     throw new Error("Invalid task paramaters");
 
   const toggleCompletion = () =>
