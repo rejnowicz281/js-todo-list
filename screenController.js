@@ -35,9 +35,6 @@ function createTaskDiv(task) {
   checkbox.setAttribute("type", "checkbox");
   checkbox.classList.add("task-checkbox");
   checkbox.checked = task.getCompletion();
-  checkbox.addEventListener("click", task.toggleCompletion);
-
-  checkboxDiv.append(checkbox);
 
   let titleDiv = document.createElement("div");
   titleDiv.classList.add("task-title-box");
@@ -46,6 +43,14 @@ function createTaskDiv(task) {
   title.classList.add("task-title");
   title.textContent = task.getTitle();
 
+  checkbox.addEventListener("click", function () {
+    task.toggleCompletion();
+    taskDiv.classList.toggle("greyed-out");
+    taskDiv.classList.toggle("task-completed");
+    title.classList.toggle("scratched");
+  });
+
+  checkboxDiv.append(checkbox);
   titleDiv.append(title);
 
   topSection.append(task.getId());
@@ -94,9 +99,11 @@ function createTaskDiv(task) {
   taskDiv.append(detailsSection);
   // DETAILS SECTION END
 
-  taskDiv.addEventListener("click", function () {
-    detailsSection.classList.toggle("hidden");
-    taskDiv.classList.toggle("task-expanded");
+  taskDiv.addEventListener("click", function (e) {
+    if (e.target !== checkbox) {
+      detailsSection.classList.toggle("hidden");
+      taskDiv.classList.toggle("task-expanded");
+    }
   });
 
   return taskDiv;
