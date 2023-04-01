@@ -1,5 +1,12 @@
-export default function task(title, description, priority, completed = false) {
-  if (title == "" || priority == "") throw new Error("Invalid task paramaters");
+export default function task(
+  title,
+  description,
+  priority,
+  dueDate,
+  completed = false
+) {
+  if (title == "" || priority == "" || !(dueDate instanceof Date))
+    throw new Error("Invalid task paramaters");
 
   const toggleCompletion = () =>
     completed == true ? (completed = false) : (completed = true);
@@ -12,6 +19,7 @@ export default function task(title, description, priority, completed = false) {
     getTitle: () => title,
     getDescription: () => description,
     getPriority: () => priority,
+    getDueDate: () => dueDate,
     getCompletion: () => completed,
     setPriority,
     toggleCompletion,

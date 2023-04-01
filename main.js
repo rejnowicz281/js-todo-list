@@ -11,8 +11,9 @@ document
     const title = document.getElementById("title-input").value;
     const description = document.getElementById("description-input").value;
     const priority = document.getElementById("priority-input").value;
+    const dueDate = document.getElementById("due-date-input").value;
 
-    let newTask = task(title, description, priority);
+    let newTask = task(title, description, priority, new Date(dueDate));
 
     currentProject.addTask(newTask);
     let projectTask =

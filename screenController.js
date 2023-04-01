@@ -82,6 +82,19 @@ function createTaskDiv(task) {
 
   priorityDiv.append(priorityHeading, priority);
   detailsSection.append(priorityDiv);
+
+  let dueDateDiv = document.createElement("div");
+  dueDateDiv.classList.add("task-due-date-box");
+  let dueDateHeading = document.createElement("h1");
+  dueDateHeading.textContent = "Due Date";
+  let dueDate = document.createElement("p");
+  dueDate.textContent = `${task.getDueDate().getMonth() + 1}/${task
+    .getDueDate()
+    .getDate()}/${task.getDueDate().getFullYear()}`;
+
+  dueDateDiv.append(dueDateHeading, dueDate);
+  detailsSection.append(dueDateDiv);
+
   detailsSection.classList.add("hidden");
 
   taskDiv.append(detailsSection);
