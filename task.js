@@ -1,8 +1,8 @@
 export default function task(
   title,
-  description,
   priority,
   dueDate,
+  description = "",
   completed = false
 ) {
   if (
@@ -16,17 +16,12 @@ export default function task(
   const toggleCompletion = () =>
     completed == true ? (completed = false) : (completed = true);
 
-  const setPriority = (value) => {
-    if (value == "low" || value == "mid" || value == "high") priority = "value";
-  };
-
   return {
     getTitle: () => title,
     getDescription: () => description,
     getPriority: () => priority,
     getDueDate: () => dueDate,
     getCompletion: () => completed,
-    setPriority,
     toggleCompletion,
   };
 }
