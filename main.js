@@ -16,9 +16,6 @@ document
     let newTask = task(title, priority, new Date(dueDate), description);
 
     currentProject.addTask(newTask);
-    let projectTask =
-      currentProject.getTasks()[currentProject.getTasks().length - 1]; // get the task that was added to current project last
 
-    currentProject.sortTasksByPriority();
     screenController(currentProject).updateTasks();
   });
