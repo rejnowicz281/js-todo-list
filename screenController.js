@@ -8,15 +8,8 @@ export default function screenController(project) {
       .forEach((task) => tasksContainer.append(createTaskDiv(task)));
   };
 
-  const appendTask = (task) => {
-    const tasksContainer = document.querySelector(".tasks-container");
-
-    tasksContainer.append(createTaskDiv(task));
-  };
-
   return {
     updateTasks,
-    appendTask,
   };
 }
 
@@ -105,6 +98,18 @@ function createTaskDiv(task) {
       taskDiv.classList.toggle("task-expanded");
     }
   });
+
+  switch (task.getPriority()) {
+    case "low":
+      taskDiv.classList.add("low-priority");
+      break;
+    case "mid":
+      taskDiv.classList.add("mid-priority");
+      break;
+    case "high":
+      taskDiv.classList.add("high-priority");
+      break;
+  }
 
   return taskDiv;
 }
