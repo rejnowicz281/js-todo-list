@@ -5,28 +5,29 @@ export default function project(title) {
     const id = tasks.length;
 
     tasks.push(Object.assign({ getId: () => id }, task));
+    sortTasks();
   };
 
-  const getTask = (id) => {
+  const toggleTask = (id) => {
     for (let i = 0; i < tasks.length; i++) {
-      if (tasks[i].getId() == id) return tasks[i];
+      if (tasks[i].getId() == id) {
+        tasks[i].toggleCompletion();
+        sortTasks();
+        break;
+      }
     }
   };
 
-  const sortTasksByPriority = () => {
+  const sortTasks = () => {
     tasks.sort((a, b) => {
-      if (a.getPriority() === "high") {
-        return -1;
-      } else if (a.getPriority() === "mid" && b.getPriority() !== "high") {
-        return -1;
-      } else if (
-        a.getPriority() === "low" &&
-        b.getPriority() !== "high" &&
-        b.getPriority() !== "mid"
-      ) {
+      const order = { high: 0, mid: 1, low: 2 };
+
+      if (a.getCompletion() && !b.getCompletion()) {
+        return 1;
+      } else if (!a.getCompletion() && b.getCompletion()) {
         return -1;
       } else {
-        return 1;
+        return order[a.getPriority()] - order[b.getPriority()];
       }
     });
   };
@@ -39,9 +40,9 @@ export default function project(title) {
 
   return {
     getTasks: () => tasks,
-    getTask,
+    toggleTask,
     addTask,
-    sortTasksByPriority,
+    sortTasks,
     removeTask,
   };
 }
