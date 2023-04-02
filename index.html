@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDo</title>
+  <script type="module" crossorigin src="/js-todo-list/assets/index-9f20a677.js"></script>
+  <link rel="stylesheet" href="/js-todo-list/assets/index-21e0be28.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="modal hidden">
+      <button id="close-modal-button">⨉</button>
+      <div class="modal-main">
+        <div class="field">
+          <label for="title-input">Title (required)</label>
+          <input type="text" name="title" id="title-input" placeholder="Task title goes here">
+        </div>
+
+        <div class="field description-field">
+          <label for="description-input">Description</label>
+          <textarea name="description" id="description-input" cols="50" rows="10"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="priority-input">Priority</label>
+          <select name="priority" id="priority-input">
+            <option value="low">Low</option>
+            <option value="mid">Mid</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="due-date-input">Due Date</label>
+          <input type="date" name="due-date" id="due-date-input">
+        </div>
+
+        <button id="submit-task-button">Submit Task</button>
+      </div>
+    </div>
+
+    <div class="overlay hidden"></div>
+
+    <main>
+      <div class="add-task-container">
+        <button id="add-task-button">New Task</button>
+      </div>
+      <div class="tasks-container">
+
+      </div>
+    </main>
+  </div>
+  
+</body>
+
+</html>
