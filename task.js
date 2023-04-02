@@ -1,10 +1,4 @@
-export default function task(
-  title,
-  priority,
-  dueDate,
-  description = "",
-  completed = false
-) {
+export default function task(title, priority, dueDate, description = "") {
   if (
     title == "" ||
     priority == "" ||
@@ -12,6 +6,8 @@ export default function task(
     isNaN(dueDate)
   )
     throw new Error("Invalid task paramaters");
+
+  let completed = false;
 
   const toggleCompletion = () =>
     completed == true ? (completed = false) : (completed = true);
