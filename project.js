@@ -13,6 +13,24 @@ export default function project(title) {
     }
   };
 
+  const sortTasksByPriority = () => {
+    tasks.sort((a, b) => {
+      if (a.getPriority() === "high") {
+        return -1;
+      } else if (a.getPriority() === "mid" && b.getPriority() !== "high") {
+        return -1;
+      } else if (
+        a.getPriority() === "low" &&
+        b.getPriority() !== "high" &&
+        b.getPriority() !== "mid"
+      ) {
+        return -1;
+      } else {
+        return 1;
+      }
+    });
+  };
+
   const removeTask = (id) => {
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].getId() == id) tasks.splice(i, 1);
@@ -23,6 +41,7 @@ export default function project(title) {
     getTasks: () => tasks,
     getTask,
     addTask,
+    sortTasksByPriority,
     removeTask,
   };
 }
