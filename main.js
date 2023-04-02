@@ -5,9 +5,30 @@ import task from "./task";
 
 let currentProject = project("default");
 
-document
-  .getElementById("add-task-button")
-  .addEventListener("click", function () {
+(function () {
+  const addTaskButton = document.getElementById("add-task-button");
+  const submitTaskButton = document.getElementById("submit-task-button");
+  const modal = document.querySelector(".modal");
+  const overlay = document.querySelector(".overlay");
+  const closeModalButton = document.getElementById("close-modal-button");
+
+  function openModal() {
+    modal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  }
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  }
+
+  addTaskButton.addEventListener("click", openModal);
+
+  submitTaskButton.addEventListener("click", closeModal);
+  closeModalButton.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  submitTaskButton.addEventListener("click", function () {
     const title = document.getElementById("title-input").value;
     const description = document.getElementById("description-input").value;
     const priority = document.getElementById("priority-input").value;
@@ -19,3 +40,4 @@ document
 
     screenController(currentProject).updateTasks();
   });
+})();
