@@ -13,11 +13,12 @@ document
     const priority = document.getElementById("priority-input").value;
     const dueDate = document.getElementById("due-date-input").value;
 
-    let newTask = task(title, description, priority, new Date(dueDate));
+    let newTask = task(title, priority, new Date(dueDate), description);
 
     currentProject.addTask(newTask);
     let projectTask =
       currentProject.getTasks()[currentProject.getTasks().length - 1]; // get the task that was added to current project last
 
-    screenController(currentProject).appendTask(projectTask);
+    currentProject.sortTasksByPriority();
+    screenController(currentProject).updateTasks();
   });
