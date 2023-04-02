@@ -5,14 +5,12 @@ export default function project(title) {
     const id = tasks.length;
 
     tasks.push(Object.assign({ getId: () => id }, task));
-    sortTasks();
   };
 
   const toggleTask = (id) => {
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].getId() == id) {
         tasks[i].toggleCompletion();
-        sortTasks();
         break;
       }
     }
