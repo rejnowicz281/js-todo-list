@@ -65,7 +65,6 @@ body {
 }
 
 .task {
-  background-color: rgb(46, 42, 42);
   margin: 20px 0;
   padding: 10px;
   cursor: pointer;
@@ -128,11 +127,23 @@ body {
   display: none;
 }
 
-.task-completed {
-  background-color: rgb(63, 63, 63);
-}
-
 .scratched {
   text-decoration: line-through;
   text-decoration-thickness: 3px;
+}
+
+.low-priority {
+  background-color: rgb(50, 50, 50);
+}
+
+.mid-priority {
+  background-color: rgb(73, 38, 38);
+}
+
+.high-priority {
+  background-color: rgb(97, 34, 34);
+}
+
+.task-completed {
+  background-color: rgb(63, 63, 63);
 }
