@@ -111,6 +111,8 @@ export default function screenController(project) {
     const tasksContainer = document.querySelector(".tasks-container");
     tasksContainer.innerHTML = "";
 
+    project.sortTasks();
+
     project
       .getTasks()
       .forEach((task) => tasksContainer.append(createTaskDiv(task)));
