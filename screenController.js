@@ -6,6 +6,7 @@ export default function screenController(project) {
 
     let deleteTaskButton = document.createElement("button");
     deleteTaskButton.setAttribute("id", "delete-task-button");
+    deleteTaskButton.classList.add("close-button");
     deleteTaskButton.textContent = "⨉";
 
     deleteTaskButton.addEventListener("click", function () {
