@@ -4,6 +4,17 @@ export default function screenController(project) {
     let taskDiv = document.createElement("div");
     taskDiv.classList.add("task");
 
+    let deleteTaskButton = document.createElement("button");
+    deleteTaskButton.setAttribute("id", "delete-task-button");
+    deleteTaskButton.textContent = "⨉";
+
+    deleteTaskButton.addEventListener("click", function () {
+      project.removeTask(task.getId());
+      updateTasks();
+    });
+
+    taskDiv.append(deleteTaskButton);
+
     let topSection = document.createElement("div");
     topSection.classList.add("task-top-section");
 
