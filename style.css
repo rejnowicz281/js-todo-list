@@ -68,6 +68,7 @@ textarea {
 }
 
 .task {
+  position: relative;
   margin: 20px 0;
   padding: 10px;
   cursor: pointer;
@@ -177,7 +178,8 @@ textarea {
   z-index: 2;
 }
 
-#close-modal-button {
+#close-modal-button,
+#delete-task-button {
   border: none;
   background-color: inherit;
   color: white;
@@ -191,7 +193,8 @@ textarea {
   border-radius: 8px;
 }
 
-#close-modal-button:hover {
+#close-modal-button:hover,
+#delete-task-button:hover {
   color: rgb(196, 196, 196);
 }
 
