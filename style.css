@@ -15,7 +15,7 @@ textarea {
 
 .add-task-container {
   box-shadow: rgba(255, 255, 255, 0.397) 0px 2px 0px;
-  padding: 0 100px 30px 100px;
+  padding: 0 200px 30px 200px;
 }
 
 #add-task-button {
@@ -64,7 +64,7 @@ textarea {
 }
 
 .tasks-container {
-  padding: 0 100px;
+  padding: 0 200px;
 }
 
 .task {
