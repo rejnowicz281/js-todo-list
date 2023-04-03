@@ -198,6 +198,10 @@ textarea {
   color: rgb(196, 196, 196);
 }
 
+#delete-task-button:hover::before {
+  content: "Delete? ";
+}
+
 #submit-task-button {
   width: 100%;
   padding: 10px;
