@@ -11,7 +11,7 @@
 <body>
   <div class="container">
     <div class="modal hidden">
-      <button id="close-modal-button">⨉</button>
+      <button class="close-button" id="close-modal-button">⨉</button>
       <div class="modal-main">
         <div class="field">
           <label for="title-input">Title (required)</label>
@@ -43,8 +43,27 @@
 
     <div class="overlay hidden"></div>
 
+    <button id="open-projects-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="40" height="40">
+        <title>menu</title>
+        <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+      </svg>
+    </button>
+
+    <aside>
+      <button id="close-projects-button" class="close-button">⨉</button>
+      <div class="projects-container">
+        <button id="add-project-button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="rgb(54, 54, 54)">
+            <title>plus</title>
+            <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+          </svg>Add Project
+        </button>
+      </div>
+    </aside>
+
     <main>
-      <div class="add-task-container">
+      <div class="main-top">
         <button id="add-task-button">New Task</button>
       </div>
       <div class="tasks-container">

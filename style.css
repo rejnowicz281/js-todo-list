@@ -13,9 +13,86 @@ textarea {
   padding: 30px;
 }
 
-.add-task-container {
+.main-top,
+.tasks-container {
+  padding: 0 300px;
+}
+
+.main-top {
   box-shadow: rgba(255, 255, 255, 0.397) 0px 2px 0px;
-  padding: 0 200px 30px 200px;
+  padding-bottom: 30px;
+}
+
+#open-projects-button {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border: none;
+  background-color: #111;
+  border-right: 2px solid rgb(99, 99, 99);
+  border-bottom: 2px solid rgb(99, 99, 99);
+  border-bottom-right-radius: 20px;
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.1s;
+}
+
+#open-projects-button:hover {
+  background-color: #100;
+}
+
+#open-projects-button svg {
+  transition: 0.1s;
+}
+
+#open-projects-button svg:hover {
+  fill: rgb(168, 168, 168);
+}
+
+aside {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0;
+  left: 0;
+  background-color: #111; /* Black*/
+  box-shadow: rgb(41, 40, 40) 0px 0px 60px,
+    rgba(131, 131, 131, 0.12) 0px 0px 0px,
+    rgba(129, 129, 129, 0.993) 0px 0px 6px, rgba(0, 0, 0, 0.17) 0px 0px 0px,
+    rgba(0, 0, 0, 0.09) 0px 0px 0px;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+  padding-top: 50px;
+}
+
+#add-project-button {
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+}
+
+.projects-container button {
+  background: inherit;
+  border: none;
+  font-size: 25px;
+  padding: 30px;
+  transition: 0.2s;
+  cursor: pointer;
+  color: rgb(104, 104, 104);
+}
+
+.projects-container button:hover {
+  background-color: #a18282;
+  color: #111;
 }
 
 #add-task-button {
@@ -61,10 +138,6 @@ textarea {
 
 #description-input {
   margin-left: 0;
-}
-
-.tasks-container {
-  padding: 0 200px;
 }
 
 .task {
@@ -178,8 +251,7 @@ textarea {
   z-index: 2;
 }
 
-#close-modal-button,
-#delete-task-button {
+.close-button {
   border: none;
   background-color: inherit;
   color: white;
@@ -193,8 +265,7 @@ textarea {
   border-radius: 8px;
 }
 
-#close-modal-button:hover,
-#delete-task-button:hover {
+.close-button:hover {
   color: rgb(196, 196, 196);
 }
 

@@ -8,6 +8,9 @@ let currentProject = project("default");
 (function () {
   const addTaskButton = document.getElementById("add-task-button");
   const submitTaskButton = document.getElementById("submit-task-button");
+  const openProjectsButton = document.getElementById("open-projects-button");
+  const closeProjectsButton = document.getElementById("close-projects-button");
+
   const modal = document.querySelector(".modal");
   const overlay = document.querySelector(".overlay");
   const closeModalButton = document.getElementById("close-modal-button");
@@ -21,6 +24,17 @@ let currentProject = project("default");
     modal.classList.add("hidden");
     overlay.classList.add("hidden");
   }
+
+  function openProjects() {
+    document.querySelector("aside").style.width = "250px";
+  }
+
+  function closeProjects() {
+    document.querySelector("aside").style.width = "0";
+  }
+
+  openProjectsButton.addEventListener("click", openProjects);
+  closeProjectsButton.addEventListener("click", closeProjects);
 
   addTaskButton.addEventListener("click", openModal);
 
@@ -41,3 +55,7 @@ let currentProject = project("default");
     screenController(currentProject).updateTasks();
   });
 })();
+
+let sc = screenController(currentProject);
+
+sc.updateTasks();
