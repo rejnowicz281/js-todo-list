@@ -115,7 +115,7 @@ export default function screenController(project) {
 
     project
       .getTasks()
-      .forEach((task) => tasksContainer.append(createTaskDiv(task)));
+      .forEach((task) => tasksContainer.prepend(createTaskDiv(task)));
   };
 
   return {

@@ -18,12 +18,12 @@ export default function project(title) {
 
   const sortTasks = () => {
     tasks.sort((a, b) => {
-      const order = { high: 0, mid: 1, low: 2 };
+      const order = { high: 2, mid: 1, low: 0 };
 
       if (a.getCompletion() && !b.getCompletion()) {
-        return 1;
-      } else if (!a.getCompletion() && b.getCompletion()) {
         return -1;
+      } else if (!a.getCompletion() && b.getCompletion()) {
+        return 1;
       } else {
         return order[a.getPriority()] - order[b.getPriority()];
       }
