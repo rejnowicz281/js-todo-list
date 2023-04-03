@@ -24,7 +24,6 @@ let currentProject = project("default");
 
   addTaskButton.addEventListener("click", openModal);
 
-  submitTaskButton.addEventListener("click", closeModal);
   closeModalButton.addEventListener("click", closeModal);
   overlay.addEventListener("click", closeModal);
 
@@ -36,6 +35,7 @@ let currentProject = project("default");
 
     let newTask = task(title, priority, new Date(dueDate), description);
 
+    closeModal();
     currentProject.addTask(newTask);
 
     screenController(currentProject).updateTasks();
