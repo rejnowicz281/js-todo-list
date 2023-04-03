@@ -31,7 +31,6 @@ textarea {
 
 #add-task-button:hover {
   background-color: rgb(71, 71, 71);
-  scale: 1.1;
 }
 
 .field {
@@ -84,6 +83,7 @@ textarea {
 
 .task:hover {
   background-color: rgb(71, 71, 71);
+  scale: 1.01;
 }
 
 .task-top-section {
