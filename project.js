@@ -1,4 +1,6 @@
 export default function project(title) {
+  if (title == "") throw new Error("Project title is required");
+
   const tasks = [];
 
   const addTask = (task) => {
@@ -37,6 +39,7 @@ export default function project(title) {
   };
 
   return {
+    getTitle: () => title,
     getTasks: () => tasks,
     toggleTask,
     addTask,
