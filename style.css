@@ -73,6 +73,7 @@ aside {
 }
 
 #add-project-button {
+  width: 100%;
   gap: 5px;
   display: flex;
   justify-content: center;
@@ -80,7 +81,7 @@ aside {
   font-size: 18px;
 }
 
-.projects-container button {
+.aside-button {
   background: inherit;
   border: none;
   font-size: 25px;
@@ -90,7 +91,7 @@ aside {
   color: rgb(104, 104, 104);
 }
 
-.projects-container button:hover {
+.aside-button:hover {
   background-color: #a18282;
   color: #111;
 }
@@ -114,14 +115,14 @@ aside {
   margin-bottom: 20px;
 }
 
-#title-input {
+.title-input {
   text-align: center;
 }
 
-#priority-input,
-#due-date-input,
-#description-input,
-#title-input {
+#task-priority-input,
+#task-due-date-input,
+#task-description-input,
+.title-input {
   background-color: rgb(88, 88, 88);
   border: none;
   color: white;
@@ -131,12 +132,12 @@ aside {
   font-weight: bold;
 }
 
-.description-field {
+.task-description-field {
   display: flex;
   flex-direction: column;
 }
 
-#description-input {
+#task-description-input {
   margin-left: 0;
 }
 
@@ -273,7 +274,14 @@ aside {
   content: "Delete? ";
 }
 
-#submit-task-button {
+.project-title-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-button {
   width: 100%;
   padding: 10px;
   background-color: rgb(63, 63, 63);
@@ -283,6 +291,6 @@ aside {
   cursor: pointer;
 }
 
-#submit-task-button:hover {
+.create-button:hover {
   background-color: rgb(70, 70, 70);
 }

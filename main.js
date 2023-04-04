@@ -56,16 +56,21 @@ import projectManager from "./projectManager";
   closeProjectsButton.addEventListener("click", closeProjects);
 
   addProjectButton.addEventListener("click", openAddProjectModal);
+
   closeAddProjectModalButton.addEventListener("click", closeAddProjectModal);
 
   addTaskButton.addEventListener("click", openAddTaskModal);
 
+  overlay.addEventListener("click", function () {
+    closeAddTaskModal();
+    closeAddProjectModal();
+  });
+
   closeAddTaskModalButton.addEventListener("click", closeAddTaskModal);
-  overlay.addEventListener("click", closeAddTaskModal);
 
   submitTaskButton.addEventListener("click", function () {
     const title = document.getElementById("task-title-input").value;
-    const description = document.getElementById("taks-description-input").value;
+    const description = document.getElementById("task-description-input").value;
     const priority = document.getElementById("task-priority-input").value;
     const dueDate = document.getElementById("task-due-date-input").value;
 
@@ -83,6 +88,7 @@ import projectManager from "./projectManager";
     let newProject = project(title);
 
     closeAddProjectModal();
+
     projectManager.addProject(newProject);
     projectManager.makeCurrentProject(
       projectManager

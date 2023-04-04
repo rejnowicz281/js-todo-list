@@ -10,21 +10,34 @@
 
 <body>
   <div class="container">
+    <div id="add-project-modal" class="modal hidden">
+      <button class="close-button" id="close-add-project-modal-button">⨉</button>
+      <div class="modal-main">
+        <div class="field project-title-field">
+          <label for="project-title-input">Title (required)</label>
+          <input type="text" name="title" class="title-input" id="project-title-input"
+            placeholder="Project title goes here">
+        </div>
+
+        <button class="create-button" id="create-project-button">Create Project</button>
+      </div>
+    </div>
+
     <div id="add-task-modal" class="modal hidden">
       <button class="close-button" id="close-add-task-modal-button">⨉</button>
       <div class="modal-main">
         <div class="field">
-          <label for="title-input">Title (required)</label>
-          <input type="text" name="title" id="task-title-input" placeholder="Task title goes here">
+          <label for="task-title-input">Title (required)</label>
+          <input type="text" name="title" class="title-input" id="task-title-input" placeholder="Task title goes here">
         </div>
 
-        <div class="field description-field">
-          <label for="description-input">Description</label>
+        <div class="field task-description-field">
+          <label for="task-description-input">Description</label>
           <textarea name="description" id="task-description-input" cols="50" rows="10"></textarea>
         </div>
 
         <div class="field">
-          <label for="priority-input">Priority</label>
+          <label for="task-priority-input">Priority</label>
           <select name="priority" id="task-priority-input">
             <option value="low">Low</option>
             <option value="mid">Mid</option>
@@ -33,11 +46,11 @@
         </div>
 
         <div class="field">
-          <label for="due-date-input">Due Date</label>
+          <label for="task-due-date-input">Due Date</label>
           <input type="date" name="due-date" id="task-due-date-input">
         </div>
 
-        <button id="submit-task-button">Submit Task</button>
+        <button class="create-button" id="submit-task-button">Submit Task</button>
       </div>
     </div>
 
@@ -53,13 +66,14 @@
     <aside>
       <button id="close-projects-button" class="close-button">⨉</button>
       <div class="projects-container">
-        <button id="add-project-button">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="rgb(54, 54, 54)">
-            <title>plus</title>
-            <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-          </svg>Add Project
-        </button>
+
       </div>
+      <button class="aside-button" id="add-project-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="rgb(54, 54, 54)">
+          <title>plus</title>
+          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+        </svg>Add Project
+      </button>
     </aside>
 
     <main>
