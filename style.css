@@ -300,3 +300,16 @@ aside {
 .create-button:hover {
   background-color: rgb(70, 70, 70);
 }
+
+@media (max-width: 1000px) {
+  .main-top,
+  .tasks-container {
+    padding: 10px;
+  }
+  .main-top {
+    text-align: center;
+  }
+  .modal {
+    width: 300px;
+  }
+}
