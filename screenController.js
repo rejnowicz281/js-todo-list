@@ -1,4 +1,8 @@
-export default function screenController(project) {
+import projectManager from "./projectManager";
+
+function screenController() {
+  let currentProject = projectManager.getCurrentProject();
+
   const createTaskDiv = (task) => {
     // TOP SECTION
     let taskDiv = document.createElement("div");
@@ -10,7 +14,7 @@ export default function screenController(project) {
     deleteTaskButton.textContent = "⨉";
 
     deleteTaskButton.addEventListener("click", function () {
-      project.removeTask(task.getId());
+      currentProject.removeTask(task.getId());
       updateTasks();
     });
 
@@ -41,7 +45,7 @@ export default function screenController(project) {
     }
 
     checkbox.addEventListener("click", function () {
-      project.toggleTask(task.getId());
+      currentProject.toggleTask(task.getId());
       taskDiv.classList.toggle("greyed-out");
       taskDiv.classList.toggle("task-completed");
       title.classList.toggle("scratched");
@@ -123,9 +127,9 @@ export default function screenController(project) {
     const tasksContainer = document.querySelector(".tasks-container");
     tasksContainer.innerHTML = "";
 
-    project.sortTasks();
+    currentProject.sortTasks();
 
-    project
+    currentProject
       .getTasks()
       .forEach((task) => tasksContainer.prepend(createTaskDiv(task)));
   };
@@ -134,3 +138,5 @@ export default function screenController(project) {
     updateTasks,
   };
 }
+
+export default screenController();

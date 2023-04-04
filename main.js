@@ -1,9 +1,7 @@
 import "./style.css";
-import project from "./project";
 import screenController from "./screenController";
 import task from "./task";
-
-let currentProject = project("default");
+import projectManager from "./projectManager";
 
 (function () {
   const addTaskButton = document.getElementById("add-task-button");
@@ -50,12 +48,8 @@ let currentProject = project("default");
     let newTask = task(title, priority, new Date(dueDate), description);
 
     closeModal();
-    currentProject.addTask(newTask);
+    projectManager.getCurrentProject().addTask(newTask);
 
-    screenController(currentProject).updateTasks();
+    screenController.updateTasks();
   });
 })();
-
-let sc = screenController(currentProject);
-
-sc.updateTasks();
