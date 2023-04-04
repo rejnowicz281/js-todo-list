@@ -1,25 +1,36 @@
 import "./style.css";
 import screenController from "./screenController";
 import task from "./task";
+import project from "./project";
 import projectManager from "./projectManager";
 
 (function () {
   const addTaskButton = document.getElementById("add-task-button");
   const submitTaskButton = document.getElementById("submit-task-button");
+  const addTaskModal = document.getElementById("add-task-modal");
+  const closeAddTaskModalButton = document.getElementById(
+    "close-add-task-modal-button"
+  );
+
   const openProjectsButton = document.getElementById("open-projects-button");
   const closeProjectsButton = document.getElementById("close-projects-button");
 
-  const modal = document.querySelector(".modal");
-  const overlay = document.querySelector(".overlay");
-  const closeModalButton = document.getElementById("close-modal-button");
+  const addProjectButton = document.getElementById("add-project-button");
+  const createProjectButton = document.getElementById("create-project-button");
+  const addProjectModal = document.getElementById("add-project-modal");
+  const closeAddProjectModalButton = document.getElementById(
+    "close-add-project-modal-button"
+  );
 
-  function openModal() {
-    modal.classList.remove("hidden");
+  const overlay = document.querySelector(".overlay");
+
+  function openAddTaskModal() {
+    addTaskModal.classList.remove("hidden");
     overlay.classList.remove("hidden");
   }
 
-  function closeModal() {
-    modal.classList.add("hidden");
+  function closeAddTaskModal() {
+    addTaskModal.classList.add("hidden");
     overlay.classList.add("hidden");
   }
 
@@ -31,25 +42,54 @@ import projectManager from "./projectManager";
     document.querySelector("aside").style.width = "0";
   }
 
+  function openAddProjectModal() {
+    addProjectModal.classList.remove("hidden");
+    overlay.classList.remove("hidden");
+  }
+
+  function closeAddProjectModal() {
+    addProjectModal.classList.add("hidden");
+    overlay.classList.add("hidden");
+  }
+
   openProjectsButton.addEventListener("click", openProjects);
   closeProjectsButton.addEventListener("click", closeProjects);
 
-  addTaskButton.addEventListener("click", openModal);
+  addProjectButton.addEventListener("click", openAddProjectModal);
+  closeAddProjectModalButton.addEventListener("click", closeAddProjectModal);
 
-  closeModalButton.addEventListener("click", closeModal);
-  overlay.addEventListener("click", closeModal);
+  addTaskButton.addEventListener("click", openAddTaskModal);
+
+  closeAddTaskModalButton.addEventListener("click", closeAddTaskModal);
+  overlay.addEventListener("click", closeAddTaskModal);
 
   submitTaskButton.addEventListener("click", function () {
-    const title = document.getElementById("title-input").value;
-    const description = document.getElementById("description-input").value;
-    const priority = document.getElementById("priority-input").value;
-    const dueDate = document.getElementById("due-date-input").value;
+    const title = document.getElementById("task-title-input").value;
+    const description = document.getElementById("taks-description-input").value;
+    const priority = document.getElementById("task-priority-input").value;
+    const dueDate = document.getElementById("task-due-date-input").value;
 
     let newTask = task(title, priority, new Date(dueDate), description);
 
-    closeModal();
+    closeAddTaskModal();
     projectManager.getCurrentProject().addTask(newTask);
 
     screenController.updateTasks();
+  });
+
+  createProjectButton.addEventListener("click", function () {
+    const title = document.getElementById("project-title-input").value;
+
+    let newProject = project(title);
+
+    closeAddProjectModal();
+    projectManager.addProject(newProject);
+    projectManager.makeCurrentProject(
+      projectManager
+        .getProjects()
+        [projectManager.getProjects().length - 1].getId()
+    ); // Make last added project the current one
+
+    screenController.updateProjects();
   });
 })();
