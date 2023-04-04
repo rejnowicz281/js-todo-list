@@ -5,6 +5,11 @@ import project from "./project";
 import projectManager from "./projectManager";
 
 (function () {
+  screenController.updateProjects();
+  document.querySelector(".current-project-title").textContent = projectManager
+    .getCurrentProject()
+    .getTitle();
+
   const addTaskButton = document.getElementById("add-task-button");
   const submitTaskButton = document.getElementById("submit-task-button");
   const addTaskModal = document.getElementById("add-task-modal");
