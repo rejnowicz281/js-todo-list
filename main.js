@@ -96,6 +96,9 @@ import projectManager from "./projectManager";
         [projectManager.getProjects().length - 1].getId()
     ); // Make last added project the current one
 
+    document.querySelector(".current-project-title").textContent =
+      newProject.getTitle();
     screenController.updateProjects();
+    screenController.updateTasks();
   });
 })();

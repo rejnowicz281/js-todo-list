@@ -1,8 +1,6 @@
 import projectManager from "./projectManager";
 
 function screenController() {
-  let currentProject = projectManager.getCurrentProject();
-
   const createTaskDiv = (task) => {
     // TOP SECTION
     let taskDiv = document.createElement("div");
@@ -14,7 +12,7 @@ function screenController() {
     deleteTaskButton.textContent = "⨉";
 
     deleteTaskButton.addEventListener("click", function () {
-      currentProject.removeTask(task.getId());
+      projectManager.getCurrentProject().removeTask(task.getId());
       updateTasks();
     });
 
@@ -45,7 +43,7 @@ function screenController() {
     }
 
     checkbox.addEventListener("click", function () {
-      currentProject.toggleTask(task.getId());
+      projectManager.getCurrentProject().toggleTask(task.getId());
       taskDiv.classList.toggle("greyed-out");
       taskDiv.classList.toggle("task-completed");
       title.classList.toggle("scratched");
@@ -123,19 +121,49 @@ function screenController() {
     return taskDiv;
   };
 
+  const createProjectButton = (project) => {
+    let projectButton = document.createElement("button");
+    projectButton.classList.add("project", "aside-button");
+    projectButton.textContent = project.getTitle();
+
+    projectButton.addEventListener("click", function () {
+      projectManager.makeCurrentProject(project.getId());
+
+      document.querySelector(".current-project-title").textContent =
+        project.getTitle();
+
+      updateTasks();
+    });
+
+    return projectButton;
+  };
+
   const updateTasks = () => {
     const tasksContainer = document.querySelector(".tasks-container");
     tasksContainer.innerHTML = "";
 
-    currentProject.sortTasks();
+    projectManager.getCurrentProject().sortTasks();
 
-    currentProject
+    projectManager
+      .getCurrentProject()
       .getTasks()
       .forEach((task) => tasksContainer.prepend(createTaskDiv(task)));
   };
 
+  const updateProjects = () => {
+    const projectsContainer = document.querySelector(".projects-container");
+    projectsContainer.innerHTML = "";
+
+    projectManager
+      .getProjects()
+      .forEach((project) =>
+        projectsContainer.prepend(createProjectButton(project))
+      );
+  };
+
   return {
     updateTasks,
+    updateProjects,
   };
 }
 
