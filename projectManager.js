@@ -1,4 +1,4 @@
-import project from "./project";
+import project from "./project.js";
 
 function projectManager() {
   let projects = [];

@@ -1,8 +1,8 @@
+import project from "./project.js";
+import projectManager from "./projectManager.js";
+import screenController from "./screenController.js";
 import "./style.css";
-import screenController from "./screenController";
-import task from "./task";
-import project from "./project";
-import projectManager from "./projectManager";
+import task from "./task.js";
 
 (function () {
   screenController.updateProjects();

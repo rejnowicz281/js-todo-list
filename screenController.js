@@ -1,4 +1,4 @@
-import projectManager from "./projectManager";
+import projectManager from "./projectManager.js";
 
 function screenController() {
   const createTaskDiv = (task) => {
