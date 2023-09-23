@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ToDo</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToDo</title>
-</head>
+    <body>
+        <div class="container">
+            <div id="add-project-modal" class="modal hidden">
+                <button class="close-button" id="close-add-project-modal-button">⨉</button>
+                <div class="modal-main">
+                    <div class="field project-title-field">
+                        <label for="project-title-input">Title (required)</label>
+                        <input
+                            type="text"
+                            name="title"
+                            class="title-input"
+                            id="project-title-input"
+                            placeholder="Project title goes here"
+                        />
+                    </div>
 
-<body>
-  <div class="container">
-    <div id="add-project-modal" class="modal hidden">
-      <button class="close-button" id="close-add-project-modal-button">⨉</button>
-      <div class="modal-main">
-        <div class="field project-title-field">
-          <label for="project-title-input">Title (required)</label>
-          <input type="text" name="title" class="title-input" id="project-title-input"
-            placeholder="Project title goes here">
+                    <button class="create-button" id="create-project-button">Create Project</button>
+                </div>
+            </div>
+
+            <div id="add-task-modal" class="modal hidden">
+                <button class="close-button" id="close-add-task-modal-button">⨉</button>
+                <div class="modal-main">
+                    <div class="field">
+                        <label for="task-title-input">Title (required)</label>
+                        <input
+                            type="text"
+                            name="title"
+                            class="title-input"
+                            id="task-title-input"
+                            placeholder="Task title goes here"
+                        />
+                    </div>
+
+                    <div class="field task-description-field">
+                        <label for="task-description-input">Description</label>
+                        <textarea name="description" id="task-description-input" cols="50" rows="10"></textarea>
+                    </div>
+
+                    <div class="field">
+                        <label for="task-priority-input">Priority</label>
+                        <select name="priority" id="task-priority-input">
+                            <option value="low">Low</option>
+                            <option value="mid">Mid</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="task-due-date-input">Due Date</label>
+                        <input type="date" name="due-date" id="task-due-date-input" />
+                    </div>
+
+                    <button class="create-button" id="submit-task-button">Submit Task</button>
+                </div>
+            </div>
+
+            <div class="overlay hidden"></div>
+
+            <button id="open-projects-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="40" height="40">
+                    <title>menu</title>
+                    <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                </svg>
+            </button>
+
+            <aside>
+                <button id="close-projects-button" class="close-button">⨉</button>
+                <div class="projects-container"></div>
+                <button class="aside-button" id="add-project-button">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="50"
+                        height="50"
+                        fill="rgb(54, 54, 54)"
+                    >
+                        <title>plus</title>
+                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" /></svg
+                    >Add Project
+                </button>
+            </aside>
+
+            <main>
+                <div class="main-top">
+                    <button id="add-task-button">New Task</button>
+                </div>
+                <h1 class="current-project-title"></h1>
+                <div class="tasks-container"></div>
+            </main>
         </div>
-
-        <button class="create-button" id="create-project-button">Create Project</button>
-      </div>
-    </div>
-
-    <div id="add-task-modal" class="modal hidden">
-      <button class="close-button" id="close-add-task-modal-button">⨉</button>
-      <div class="modal-main">
-        <div class="field">
-          <label for="task-title-input">Title (required)</label>
-          <input type="text" name="title" class="title-input" id="task-title-input" placeholder="Task title goes here">
-        </div>
-
-        <div class="field task-description-field">
-          <label for="task-description-input">Description</label>
-          <textarea name="description" id="task-description-input" cols="50" rows="10"></textarea>
-        </div>
-
-        <div class="field">
-          <label for="task-priority-input">Priority</label>
-          <select name="priority" id="task-priority-input">
-            <option value="low">Low</option>
-            <option value="mid">Mid</option>
-            <option value="high">High</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="task-due-date-input">Due Date</label>
-          <input type="date" name="due-date" id="task-due-date-input">
-        </div>
-
-        <button class="create-button" id="submit-task-button">Submit Task</button>
-      </div>
-    </div>
-
-    <div class="overlay hidden"></div>
-
-    <button id="open-projects-button">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="40" height="40">
-        <title>menu</title>
-        <path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-      </svg>
-    </button>
-
-    <aside>
-      <button id="close-projects-button" class="close-button">⨉</button>
-      <div class="projects-container">
-
-      </div>
-      <button class="aside-button" id="add-project-button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50" height="50" fill="rgb(54, 54, 54)">
-          <title>plus</title>
-          <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
-        </svg>Add Project
-      </button>
-    </aside>
-
-    <main>
-      <div class="main-top">
-        <button id="add-task-button">New Task</button>
-      </div>
-      <h1 class="current-project-title"></h1>
-      <div class="tasks-container">
-
-      </div>
-    </main>
-  </div>
-  <script type="module" src="./main.js"></script>
-</body>
-
+        <script type="module" src="/main.js"></script>
+    </body>
 </html>
